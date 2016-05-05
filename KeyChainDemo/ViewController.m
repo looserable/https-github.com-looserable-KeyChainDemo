@@ -36,6 +36,7 @@
     [self.view addSubview:_nameField];
     
     _pwdField = [[UITextField alloc]initWithFrame:CGRectMake(20, 160, 335, 40)];
+    _pwdField.secureTextEntry = YES;
     _pwdField.placeholder = @"请输入密码";
     [self.view addSubview:_pwdField];
     
@@ -68,7 +69,7 @@
     KeychainItemWrapper * wrapper = [[KeychainItemWrapper alloc]initWithIdentifier:@"identifier" accessGroup:nil];
     
     [wrapper setObject:_nameField.text forKey:(id)kSecAttrAccount];
-    [wrapper setObject:_pwdField.text forKey:(id)kSecClassGenericPassword];
+    [wrapper setObject:_pwdField.text forKey:(id)kSecValueData];
     
     NSLog(@"成功了！！！");
 }
